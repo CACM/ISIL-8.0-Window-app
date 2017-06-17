@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using EasyEncryption;
 using System.Security.Cryptography;
 using Microsoft.Win32;
-using isilproto;
+using isil;
 namespace isil
 {
     /// <summary>

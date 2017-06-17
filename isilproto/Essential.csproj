@@ -155,6 +155,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAppBar, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAppBar.1.6.0\lib\net40\WpfAppBar.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -180,6 +183,12 @@
     <Compile Include="splash.xaml.cs">
       <DependentUpon>splash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="toolbar.xaml.cs">
+      <DependentUpon>toolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopToolbar.xaml.cs">
+      <DependentUpon>TopToolbar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="volume.xaml.cs">
       <DependentUpon>volume.xaml</DependentUpon>
     </Compile>
@@ -201,6 +210,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="toolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

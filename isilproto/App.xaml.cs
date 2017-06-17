@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace isilproto
+namespace isil
 {
     /// <summary>
     /// Interaction logic for App.xaml

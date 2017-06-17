@@ -1,7 +1,7 @@
 ﻿<Controls:MetroWindow 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    x:Class="isilproto.MainWindow1"
+    x:Class="isil.MainWindow1"
      xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
 			 		 
             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
@@ -96,11 +96,11 @@ ShowMaxRestoreButton="False"
         </Canvas>
     
 
-        <TextBox x:Name="txtBrowser"   TextWrapping="Wrap" Text="TextBox" FontFamily="/ISILS Essential 5.0;component/Fonts/#Melbourne" FontSize="20" BorderThickness="0" Style="{DynamicResource BROWSERTEXXT}" Margin="83,0" Height="40" Grid.RowSpan="2" VerticalAlignment="Top" KeyUp="txtBrowser_KeyUp" />
+        <TextBox x:Name="txtBrowser"   TextWrapping="Wrap" Text="TextBox" FontFamily="/ISILS Essential 5.0;component/Fonts/#Melbourne" FontSize="20" BorderThickness="0" Style="{DynamicResource BROWSERTEXXT}" Margin="83,0,123,0" Height="40" Grid.RowSpan="2" VerticalAlignment="Top" KeyUp="txtBrowser_KeyUp" />
 
 
         <UniformGrid x:Name="sp" Grid.Row="2" Grid.Column="0"  Rows="2" Grid.ColumnSpan="2" Margin="0"  />
-        <ToggleButton x:Name="btnReport" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,42,0" BorderThickness="0" Width="40" Style="{DynamicResource ToggleButtonReport}"  ToolTip="Reports" TabIndex="2147483643"/>
+        <ToggleButton x:Name="btnReport" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,82,0" BorderThickness="0" Width="40" Style="{DynamicResource ToggleButtonReport}"  ToolTip="Reports" TabIndex="2147483643"/>
         <Button x:Name="btnWebBack"  Grid.Column="0"  Content="&gt;" Width="40" HorizontalAlignment="Left"  Template="{DynamicResource brnBrowserB-F}" RenderTransformOrigin="0.5,0.5" BorderThickness="0" ToolTip="Back">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -121,7 +121,7 @@ ShowMaxRestoreButton="False"
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Path x:Name="path" Data="F1M0,9.899C0,13.584,2.017,16.792,5.005,18.496L5.794,16.64C3.521,15.253 1.999,12.757 1.999,9.899 1.999,5.535 5.536,1.999 9.899,1.999 14.262,1.999 17.798,5.535 17.798,9.899 17.798,13.876 14.856,17.158 11.031,17.708 10.642,18.191 10.242,19.04 11.481,19.659 16.194,18.901 19.797,14.826 19.797,9.899 19.797,4.431 15.366,0 9.899,0 4.432,0 0,4.431 0,9.899" Margin="0,10,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+        <Path x:Name="path" Data="F1M0,9.899C0,13.584,2.017,16.792,5.005,18.496L5.794,16.64C3.521,15.253 1.999,12.757 1.999,9.899 1.999,5.535 5.536,1.999 9.899,1.999 14.262,1.999 17.798,5.535 17.798,9.899 17.798,13.876 14.856,17.158 11.031,17.708 10.642,18.191 10.242,19.04 11.481,19.659 16.194,18.901 19.797,14.826 19.797,9.899 19.797,4.431 15.366,0 9.899,0 4.432,0 0,4.431 0,9.899" Margin="0,10,130,0" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -201,7 +201,7 @@ ShowMaxRestoreButton="False"
         </Grid>
         <!--<Button Content="RESET" Width="90" Click="reset_all" Grid.Column="1"   HorizontalAlignment="Center" Margin="99.2,0,90.8,0"/>-->
         <Canvas x:Name="couser" HorizontalAlignment="Left" Height="34.459" UseLayoutRounding="False" VerticalAlignment="Top" Width="77.0273"/>
-        <ToggleButton x:Name="btn_courseware" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,279.8,0" BorderThickness="0" Width="40" Style="{DynamicResource BROWSERcOUSER}" ToolTip="Courseware" Grid.ColumnSpan="2"/>
+        <ToggleButton x:Name="btn_courseware" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,0,0" BorderThickness="0" Width="40" Style="{DynamicResource BROWSERcOUSER}" ToolTip="Courseware"/>
         <Popup Placement="Center" x:Name="busyPopup" Margin="0,-540,647,156" OpacityMask="Black" PopupAnimation="Fade" IsEnabled="False" AllowsTransparency="True" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">
             <Grid x:Name="GridMsg"  Width="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenWidthKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" Margin="0" IsEnabled="False" >
                 <TextBlock Margin="0,106.578,0,0"  TextWrapping="Wrap" Text="Ready?  Let's Start " VerticalAlignment="Center" IsEnabled="False" Foreground="White" FontFamily="{DynamicResource MELB}" FontSize="29.333" FontWeight="Thin" LineHeight="42.667" TextAlignment="Center" Width="800"/>
@@ -232,17 +232,6 @@ ShowMaxRestoreButton="False"
             </Grid>
         </Popup>
         <Button x:Name="BtnPlayerClose" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="40" Height="40" BorderThickness="0,1,0,0" FontFamily="Arial" FontSize="24" Style="{DynamicResource close}" Click="BtnPlayerClose_Click" Visibility="Hidden"/>
-        <UniformGrid x:Name="PanelDown" Background="#FF3C5D63" Margin="0,0,84,0" Height="40" Rows="1" Visibility="Hidden" >
-            <ToggleButton x:Name="btnDockAux" Content="AUX In" Style="{DynamicResource btnauxtop}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White"/>
-            <ToggleButton x:Name="btnDockPa" Style="{DynamicResource dockBtnPa}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="PA"/>
-            <ToggleButton x:Name="btnDockHand" Style="{DynamicResource dockBrnHandRaise}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="Hand Raise"/>
-            <ToggleButton x:Name="btnDockPoll" Style="{DynamicResource dockBrnHandRaise}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="Poll"/>
-            <ToggleButton x:Name="btnDockOpenH" Style="{DynamicResource DockBtnOpenhouse}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="Push 2 Talk"/>
-            <ToggleButton x:Name="btnDockOpenG" Style="{DynamicResource dockbtnOpenGroup}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="Open Group" IsChecked="True"/>
-            <ToggleButton x:Name="btnDockClosedG" Style="{DynamicResource dockBtnClosed}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="Closed Group"/>
-            <ToggleButton x:Name="btnDockOne" Style="{DynamicResource DockBtnOnetoOne}" Height="40" Margin="0,0,3,0" FontSize="18.667" FontFamily="{DynamicResource MELB}" Foreground="White" Content="One to One"/>
-            <Button x:Name="btnDesktopNormal" Content="VC" BorderThickness="0" Style="{DynamicResource normaldoc}" Margin="0" ToolTip="Normal View" Height="40" FontFamily="{DynamicResource MELB}"/>
-        </UniformGrid>
 
 
         <Popup AllowsTransparency="True" Placement="Center" x:Name="SettingPopup" Margin="0,0,0,0" OpacityMask="#FF000000" PopupAnimation="Fade" Width="600" IsEnabled="False" StaysOpen="False">
@@ -512,9 +501,6 @@ ShowMaxRestoreButton="False"
             <Path Data="F1M80.038,96.941C80.038,98.217,79.006,99.248,77.73,99.248L2.309,99.248C1.03,99.248,0,98.217,0,96.941L0,2.301C0,1.032,1.03,0,2.309,0L77.73,0C79.006,0,80.038,1.032,80.038,2.301z" Fill="#FF231F20" Height="99.248" Canvas.Left="49.437" Canvas.Top="102.675" Width="80.038"/>
             <TextBlock     x:Name="txtPollCount" Text="0  0" FontSize="86.667" Height="100" VerticalAlignment="Center" Canvas.Left="66.378" Canvas.Top="107.66" Width="152.64" HorizontalAlignment="Center" Foreground="White" TextAlignment="Justify" TextOptions.TextHintingMode="Animated" TextOptions.TextFormattingMode="Display" FontStretch="SemiCondensed" TextWrapping="WrapWithOverflow" TextTrimming="WordEllipsis" FontWeight="Thin" FontFamily="{DynamicResource DIGIT}"/>
         </Canvas>
-        <Rectangle x:Name="busyRec" Fill="#FF0E0D0D" Grid.RowSpan="3" Grid.ColumnSpan="3" Opacity="0.85" Visibility="Hidden"/>
-        <Button x:Name="btnDesktopDownSide" Content="VC" Width="60" HorizontalAlignment="Right" BorderThickness="0" Style="{DynamicResource desktop_down}" Margin="0,523,0,0"  ToolTip="Top Dock" Height="50" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Visibility="Hidden"/>
-        <Button x:Name="btnDesktopNormalSide" Content="VC" BorderThickness="0" Style="{DynamicResource normaldoc}" Margin="0,523,67,0" ToolTip="Normal View" Height="50" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Width="60" HorizontalAlignment="Right" Visibility="Hidden"/>
         <Popup AllowsTransparency="True" Placement="Center" x:Name="portError" Margin="23.5,0" OpacityMask="#FF000000" PopupAnimation="Fade" Width="600" Height="Auto" IsEnabled="False" StaysOpen="False">
             <Popup.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="10" ShadowDepth="10"/>
@@ -573,6 +559,7 @@ ShowMaxRestoreButton="False"
         <Label x:Name="lblUserName" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="130,542,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
         <Label x:Name="lblUserDetails" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="130,578,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FFC1BEBE" FontSize="16" Background="{x:Null}"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="60,609,0,0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btn_docking" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,41,0" BorderThickness="0" Width="40" Style="{DynamicResource BROWSEEDEKSTOP}" ToolTip="Courseware" Click="btn_docking_Click"/>
 
 
 

@@ -4,29 +4,8 @@ using System;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Animation;
-[System.Windows.Data.ValueConversion(typeof(bool), typeof(bool))]
-public class InverseBooleanConverter : System.Windows.Data.IValueConverter
-{
-    #region IValueConverter Members
 
-    public object Convert(object value, Type targetType, object parameter,
-        System.Globalization.CultureInfo culture)
-    {
-        if (targetType != typeof(bool))
-            throw new InvalidOperationException("The target must be a boolean");
-
-        return !(bool)value;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter,
-        System.Globalization.CultureInfo culture)
-    {
-        throw new NotSupportedException();
-    }
-
-    #endregion
-}
-namespace isilproto
+namespace isil
 {
 
 
@@ -280,6 +259,16 @@ namespace isilproto
 
 
             }
+        }
+
+        private void btn_docking_Click(object sender, RoutedEventArgs e)
+        {
+
+            toolbar docking = new toolbar();
+            docking.Show();
+            TopToolbar dockingTop = new TopToolbar();
+            dockingTop.Show();
+            this.Close();
         }
     }
 
