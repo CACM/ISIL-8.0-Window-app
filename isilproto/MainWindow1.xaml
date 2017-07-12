@@ -23,9 +23,16 @@ ShowMaxRestoreButton="False"
         <ImageBrush ImageSource="pack://siteoforigin:,,,/bg.jpg"></ImageBrush>
     </Window.Background>
     <!-- !/ window background definition -->
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <TextBox x:Name="txtBrowser"   TextWrapping="Wrap" Text="TextBox" FontFamily="/ISILS Essential 5.0;component/Fonts/#Melbourne" FontSize="20" BorderThickness="0" VerticalAlignment="Top" KeyUp="txtBrowser_KeyUp" MinHeight="1" />
+
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
+       
             <Button Content="Settings" />
             <Button>
                 <StackPanel Orientation="Horizontal">
@@ -68,11 +75,16 @@ ShowMaxRestoreButton="False"
             <RowDefinition Height="*"  />
             <RowDefinition Height="180"  />
         </Grid.RowDefinitions>
-        <Grid x:Name="containerVlc"  Grid.Row="1">
+        <Grid x:Name="browserGrid"  Grid.Row="1">
+            <WebBrowser x:Name="webBrowser" Panel.ZIndex="0" Margin="0" MinHeight="2" />
+        </Grid>
+        <Grid x:Name="containerVlc"  Grid.Row="1" Visibility="Hidden">
             <Grid x:Name="containerVlcPlayer" >
                 <wpf:VlcPlayer x:Name="Player" VlcOption="{StaticResource VlcOptions}"  LibVlcPath="..\..\..\libvlc" EndBehavior="Nothing" Stretch="Uniform" Background="Black" Cursor="{Binding Time.Minutes, ElementName=Player, Mode=OneWay}" />
 
             </Grid>
+
+
             <ToggleButton   IsChecked="{Binding IsChecked, ElementName=btnPlayerPlay}" x:Name="btnPlayerPause" Margin="0" Style="{DynamicResource btnPlayPause}" MouseDoubleClick="btnPlayerPlay_Copy_MouseDoubleClick" Opacity="0.3" />
             <Slider x:Name="sliderPlayerPos_Copy" Style="{DynamicResource SliderStylePlayer}" Maximum="1"  Height="40"  Value="{Binding Position, ElementName=Player}"  SmallChange="0.00001" LargeChange="0.001" BorderThickness="0" VerticalAlignment="Bottom" Margin="20,0"  />
 
@@ -89,15 +101,9 @@ ShowMaxRestoreButton="False"
 
             </Grid>
         </simpleChildWindow:ChildWindow>
-        <Canvas ClipToBounds="False">
-            <Popup AllowsTransparency="True" ClipToBounds="False" IsOpen="True">
-                <WebBrowser x:Name="webBrowser" Panel.ZIndex="-500" />
-            </Popup>
-        </Canvas>
-    
 
-        <TextBox x:Name="txtBrowser"   TextWrapping="Wrap" Text="TextBox" FontFamily="/ISILS Essential 5.0;component/Fonts/#Melbourne" FontSize="20" BorderThickness="0" Style="{DynamicResource BROWSERTEXXT}" Margin="83,0,123,0" Height="40" Grid.RowSpan="2" VerticalAlignment="Top" KeyUp="txtBrowser_KeyUp" />
 
+     
 
         <UniformGrid x:Name="sp" Grid.Row="2" Grid.Column="0"  Rows="2" Grid.ColumnSpan="2" Margin="0"  />
         <ToggleButton x:Name="btnReport" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,82,0" BorderThickness="0" Width="40" Style="{DynamicResource ToggleButtonReport}"  ToolTip="Reports" TabIndex="2147483643"/>
@@ -145,6 +151,8 @@ ShowMaxRestoreButton="False"
                 </LinearGradientBrush>
             </Path.OpacityMask>
         </Path>
+        <ToggleButton x:Name="btn_courseware" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,0,0" BorderThickness="0" Width="40" Style="{DynamicResource BROWSERcOUSER}" ToolTip="Courseware"/>
+        <Button x:Name="BtnPlayerClose" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="40" Height="40" BorderThickness="0,1,0,0" FontFamily="Arial" FontSize="24" Style="{DynamicResource close}" Click="BtnPlayerClose_Click" Visibility="Hidden"/>
         <Grid  Grid.Row="0" Grid.Column="1"   Grid.RowSpan="2" Margin="8,0,0,0" >
 
             <Grid.RowDefinitions >
@@ -201,7 +209,6 @@ ShowMaxRestoreButton="False"
         </Grid>
         <!--<Button Content="RESET" Width="90" Click="reset_all" Grid.Column="1"   HorizontalAlignment="Center" Margin="99.2,0,90.8,0"/>-->
         <Canvas x:Name="couser" HorizontalAlignment="Left" Height="34.459" UseLayoutRounding="False" VerticalAlignment="Top" Width="77.0273"/>
-        <ToggleButton x:Name="btn_courseware" Content="ToggleButton" HorizontalAlignment="Right" Margin="0,0,0,0" BorderThickness="0" Width="40" Style="{DynamicResource BROWSERcOUSER}" ToolTip="Courseware"/>
         <Popup Placement="Center" x:Name="busyPopup" Margin="0,-540,647,156" OpacityMask="Black" PopupAnimation="Fade" IsEnabled="False" AllowsTransparency="True" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">
             <Grid x:Name="GridMsg"  Width="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenWidthKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" Margin="0" IsEnabled="False" >
                 <TextBlock Margin="0,106.578,0,0"  TextWrapping="Wrap" Text="Ready?  Let's Start " VerticalAlignment="Center" IsEnabled="False" Foreground="White" FontFamily="{DynamicResource MELB}" FontSize="29.333" FontWeight="Thin" LineHeight="42.667" TextAlignment="Center" Width="800"/>
@@ -231,7 +238,6 @@ ShowMaxRestoreButton="False"
 
             </Grid>
         </Popup>
-        <Button x:Name="BtnPlayerClose" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="40" Height="40" BorderThickness="0,1,0,0" FontFamily="Arial" FontSize="24" Style="{DynamicResource close}" Click="BtnPlayerClose_Click" Visibility="Hidden"/>
 
 
         <Popup AllowsTransparency="True" Placement="Center" x:Name="SettingPopup" Margin="0,0,0,0" OpacityMask="#FF000000" PopupAnimation="Fade" Width="600" IsEnabled="False" StaysOpen="False">

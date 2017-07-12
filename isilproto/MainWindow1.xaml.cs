@@ -75,6 +75,7 @@ namespace isil
             {
                 containerVlc.Visibility = System.Windows.Visibility.Hidden;
                 BtnPlayerClose.Visibility = System.Windows.Visibility.Hidden;
+                webBrowser.Visibility = Visibility.Visible;
             }
             catch { }
         }
@@ -83,8 +84,9 @@ namespace isil
         {
             try
             {
-                containerVlc.Visibility = System.Windows.Visibility.Visible;
-                BtnPlayerClose.Visibility = System.Windows.Visibility.Visible;
+                containerVlc.Visibility = Visibility.Visible;
+                BtnPlayerClose.Visibility = Visibility.Visible;
+                webBrowser.Visibility = Visibility.Hidden;
             }
             catch { }
           
