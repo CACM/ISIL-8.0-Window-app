@@ -189,9 +189,6 @@
     <Compile Include="TopToolbar.xaml.cs">
       <DependentUpon>TopToolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="volume.xaml.cs">
-      <DependentUpon>volume.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -218,10 +215,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TopToolbar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="volume.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

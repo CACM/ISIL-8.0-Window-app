@@ -55,7 +55,7 @@ namespace isil
         string[] audioFileFormat = {
 			".wav", ".mp3", ".wma", ".zab"
 		};
-        Storyboard browserLoadingSB;
+      //  Storyboard browserLoadingSB;
         public MainWindow1()
         {
             InitializeComponent();
@@ -64,7 +64,7 @@ namespace isil
             Player.VlcMediaPlayer.Stoped+=VlcMediaPlayer_Stoped ;
 
             Player.StateChanged += VlcMediaPlayer_Playing;
-             browserLoadingSB = this.FindResource("browserLoading") as Storyboard; // intialize animation for browser loading
+          //   browserLoadingSB = this.FindResource("browserLoading") as Storyboard; // intialize animation for browser loading
 
       
         }
@@ -101,12 +101,12 @@ namespace isil
         void VlcMediaPlayer_EndReached(object sender, Meta.Vlc.ObjectEventArgs<Meta.Vlc.Interop.Media.MediaState> e)
         {
 
-            btnPlayerPlay.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
-                                   new Action(delegate()
-                                   {
-                                       btnPlayerPlay.IsChecked = false;
-                                       Player.Stop();
-                                   }));
+          //  btnPlayerPlay.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+          //                         new Action(delegate()
+          //                         {
+          //                             btnPlayerPlay.IsChecked = false;
+          //                             Player.Stop();
+          //                         }));
 
         }
 
@@ -145,7 +145,7 @@ namespace isil
                     Player.Stop();
                 Player.LoadMedia(openfiles.FileName);
                 Player.Play();
-                btnPlayerPlay.IsChecked = true;
+              //  btnPlayerPlay.IsChecked = true;
             }
 
             containerVlc.Visibility = System.Windows.Visibility.Hidden;
