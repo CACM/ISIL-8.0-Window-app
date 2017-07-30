@@ -1,6 +1,7 @@
 ﻿
 using MahApps.Metro.Controls;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Animation;
@@ -52,23 +53,13 @@ namespace isil
             return IntPtr.Zero;
         }
         #endregion
-        string[] audioFileFormat = {
-			".wav", ".mp3", ".wma", ".zab"
-		};
-      //  Storyboard browserLoadingSB;
-        public MainWindow1()
-        {
-            InitializeComponent();
-            this.SourceInitialized += Window1_SourceInitialized; // disable window move and restore
-            Player.VlcMediaPlayer.EndReached += VlcMediaPlayer_EndReached; // vlc end reach
-            Player.VlcMediaPlayer.Stoped+=VlcMediaPlayer_Stoped ;
-
-            Player.StateChanged += VlcMediaPlayer_Playing;
-          //   browserLoadingSB = this.FindResource("browserLoading") as Storyboard; // intialize animation for browser loading
-
-      
-        }
         #region Vlc_Functions
+        /// <summary>
+        /// The audio file format for vlc file open
+        /// </summary>
+        string[] audioFileFormat = {
+            ".wav", ".mp3", ".wma", ".zab"
+        };
         private void VlcMediaPlayer_Stoped(object sender, Meta.Vlc.ObjectEventArgs<Meta.Vlc.Interop.Media.MediaState> e)
         {
             try
@@ -89,24 +80,24 @@ namespace isil
                 webBrowser.Visibility = Visibility.Hidden;
             }
             catch { }
-          
-            
-            
+
+
+
         }
-     
-     
+
+
 
 
 
         void VlcMediaPlayer_EndReached(object sender, Meta.Vlc.ObjectEventArgs<Meta.Vlc.Interop.Media.MediaState> e)
         {
 
-          //  btnPlayerPlay.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
-          //                         new Action(delegate()
-          //                         {
-          //                             btnPlayerPlay.IsChecked = false;
-          //                             Player.Stop();
-          //                         }));
+            //  btnPlayerPlay.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+            //                         new Action(delegate()
+            //                         {
+            //                             btnPlayerPlay.IsChecked = false;
+            //                             Player.Stop();
+            //                         }));
 
         }
 
@@ -145,7 +136,7 @@ namespace isil
                     Player.Stop();
                 Player.LoadMedia(openfiles.FileName);
                 Player.Play();
-              //  btnPlayerPlay.IsChecked = true;
+                //  btnPlayerPlay.IsChecked = true;
             }
 
             containerVlc.Visibility = System.Windows.Visibility.Hidden;
@@ -213,7 +204,21 @@ namespace isil
 
 
         #endregion
+        //  Storyboard browserLoadingSB;
+        public MainWindow1()
+        {
+            InitializeComponent();
+            this.SourceInitialized += Window1_SourceInitialized; // disable window move and restore
+            Player.VlcMediaPlayer.EndReached += VlcMediaPlayer_EndReached; // vlc end reach
+            Player.VlcMediaPlayer.Stoped+=VlcMediaPlayer_Stoped ;
 
+            Player.StateChanged += VlcMediaPlayer_Playing;
+            //   browserLoadingSB = this.FindResource("browserLoading") as Storyboard; // intialize animation for browser loading
+          //  new test();
+      
+        }
+      
+       
 
 
        /* private void Browser_LoadingStateChanged(object sender, CefSharp.LoadingStateChangedEventArgs e)
@@ -266,12 +271,21 @@ namespace isil
         private void btn_docking_Click(object sender, RoutedEventArgs e)
         {
 
-            toolbar docking = new toolbar();
-            docking.Show();
-            TopToolbar dockingTop = new TopToolbar();
-            dockingTop.Show();
-            this.Close();
+            
         }
+
+        private void Student_Loaded(object sender, RoutedEventArgs e)
+        {
+            StudentViewModel.Instance = new StudentViewModel();
+
+            StudentViewControl.DataContext = StudentViewModel.Instance;
+
+            studentService s = new studentService();
+
+
+        }
+
+        
     }
 
 }

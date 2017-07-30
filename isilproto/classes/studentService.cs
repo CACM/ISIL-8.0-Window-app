@@ -1,43 +1,47 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace isil
 {
     class studentService
     {
-        private static studentService instance;
-        private List<student> studentList = null;
-        private static readonly object syncRoot = new object();
-        private studentService()
+        public studentService()
         {
-            if (studentList == null)
+
+
+           
+            Task.Run(async () =>
             {
-                studentList = new List<student>();
-            }
-        }
-        public static studentService Instance()
-        {
-            if (instance == null)
-            {
-                lock (syncRoot)
+
+                for (int i = 0; i < 10; i++)
                 {
-                    if (instance == null)
+                    await Task.Delay(600);
+
+                    Console.WriteLine("Cannot open Redirect.txt for writing");
+                    StudentModel s = new StudentModel
                     {
-                        instance = new studentService();
-                    }
+                        StudentChannel = AudioChannelType.OpenChannel,
+                        StudentHandRasiedTime = 1245,
+                        StudentMicActive = true,
+                        StudentName = "Sumit Das",
+                        StudentPollAns = PollAnsDataType.A,
+                        StudentRfidNo = 12312412,
+                        StudentSeatno = i,
+                        StudentHandRasied = true
+                    };
+
+                    if (StudentViewModel.Instance != null)
+                    {
+                        //Why you need the "var datacontext" in your example here ?
+                        StudentViewModel.Instance.LoadStudents(s);
+             }
+
+
                 }
-
-            }
-            return instance;
+            });
+            //studentViewModelObject.LoadStudents();
         }
 
-        public void addStudent(student stu)
-        {
-            studentList.Add(stu);
-        }
-
-        public student getStudentBySeatno(int seatno)
-        {
-            return studentList.Find(stu => stu.StudentSeatno.Equals(seatno));
-        }
     }
 }

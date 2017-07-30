@@ -29,10 +29,10 @@ namespace isil
 
             //initializing student object 
             student[] studentObject = staticSharedFunctions.InitializeArray<student>(staticSharedFunctions.getNumberOfStudentsSeats());
-            studentService = studentService.Instance();
+           // studentService = studentService.Instance();
             for (int i = 0; i < staticSharedFunctions.getNumberOfStudentsSeats(); i++)
             {
-                studentService.addStudent(studentObject[i]);
+           //     studentService.addStudent(studentObject[i]);
                 studentObject[i].StudentSeatno = i;
             }
         }
@@ -96,7 +96,7 @@ namespace isil
                         string rfidSeat = "";
                         rfidSeat = recieved_data.Substring(15, 3);
                         //  rfidarray[Int32.Parse(rfidSeat)] = rfid;
-                        studentService.getStudentBySeatno(int.Parse(rfidSeat)).StudentRfidNo = rfid;
+                       // studentService.getStudentBySeatno(int.Parse(rfidSeat)).StudentRfidNo = rfid;
 
                     }
 
@@ -125,12 +125,12 @@ namespace isil
                         {
                             try
                             {
-                                studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentMicActive = pieces[1] == "2" ? true : false; // mic active check per user
-                                studentService.getStudentBySeatno(int.Parse(pieces[0])).StudenthandRasiedTime = pieces[2]; //hand rasied timmer
-                                studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentPollAns = pieces[3]; // store poll ans data.
-                                studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentChannelClosed = pieces[5] == "1" ? true : false; // closed group channel
-                                studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentChannelOpen = pieces[5] == "2" ? true : false; // open group channel
-                                studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentChannelOpen = pieces[5] == "2" ? true : false; // open group channel
+                               // studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentMicActive = pieces[1] == "2" ? true : false; // mic active check per user
+                               // studentService.getStudentBySeatno(int.Parse(pieces[0])).StudenthandRasiedTime = pieces[2]; //hand rasied timmer
+                               // studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentPollAns = pieces[3]; // store poll ans data.
+                               // studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentChannelClosed = pieces[5] == "1" ? true : false; // closed group channel
+                               // studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentChannelOpen = pieces[5] == "2" ? true : false; // open group channel
+                               // studentService.getStudentBySeatno(int.Parse(pieces[0])).StudentChannelOpen = pieces[5] == "2" ? true : false; // open group channel
 
                             }
                             catch (Exception e)

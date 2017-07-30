@@ -1,16 +1,13 @@
 ﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="isilproto.App"
-               xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-     
-    
-    StartupUri="splash.xaml">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="isilproto.App"
+    StartupUri="View/splash.xaml">
     <Application.Resources>
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Simple Styles.xaml"/>
+            
 
                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -20,7 +17,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        
+
             <FontFamily x:Key="DIGIT">/ISILS Essential 7.1;component/Fonts/#Digital-7</FontFamily>
             <FontFamily x:Key="MELB">/ISILS Essential 7.1;component/Fonts/#Melbourne</FontFamily>
 

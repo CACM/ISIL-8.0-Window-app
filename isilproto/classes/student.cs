@@ -43,8 +43,8 @@ namespace isil
             set { studentName = value; }
         }
 
-       
-               public bool StudentChannelClosed
+
+        public bool StudentChannelClosed
         {
             get { return studentChannelClosed; }
             set { studentChannelClosed = value; }
@@ -63,9 +63,9 @@ namespace isil
         }
 
 
- 
-        
- 
+
+
+
 
 
 
