@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace isil
+namespace Cacm.Isils.Model.Base
 {
 
     /// <summary>

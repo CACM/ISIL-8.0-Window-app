@@ -1,10 +1,6 @@
-﻿using System;
-using System.Management;
-using System.Security.Cryptography;
-using System.Security;
-using System.Collections;
+﻿using System.Security.Cryptography;
 using System.Text;
-namespace isil
+namespace Cacm.Isils.Model.Lib
 {
     /// 
 
@@ -15,13 +11,7 @@ namespace isil
     public static class ThumbPrint
     {
         private static string fingerPrint = string.Empty;
-        private static string password = "IPSITASAHADAS";
-
-        public static string Password
-        {
-            get { return ThumbPrint.password; }
-           
-        }
+       
         public static string Value()
         {
             if (string.IsNullOrEmpty(fingerPrint))

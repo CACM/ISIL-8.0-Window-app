@@ -1,6 +1,4 @@
-﻿
-
-namespace isil
+﻿namespace Cacm.Isils.Model.Data
 {
     /// <summary>
     /// Data type for poll ans

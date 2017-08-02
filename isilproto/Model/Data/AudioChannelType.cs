@@ -1,4 +1,4 @@
-﻿namespace isil
+﻿namespace Cacm.Isils.Model.Data
 {
     /// <summary>
     /// audio channel type for group call

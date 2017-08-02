@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cacm.Isils.Model.Base;
+using Cacm.Isils.Model.Data;
+using System;
 
-namespace isil
+namespace Cacm.Isils.Model
 {
     class StudentModel:BaseModel
     {

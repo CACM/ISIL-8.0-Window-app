@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using Cacm.Isils.Model;
+using Cacm.Isils.Model.Data;
+using System.Collections.ObjectModel;
 
-namespace isil
+namespace Cacm.Isils.ViewModel.DesignViewModel
 {
     class StudentListDesignViewModel:StudentViewModel
     {
@@ -9,7 +11,7 @@ namespace isil
         /// <summary>
         /// A single instance of the design model
         /// </summary>
-      public static StudentListDesignViewModel Instance => new StudentListDesignViewModel();
+        public static new StudentListDesignViewModel Instance => new StudentListDesignViewModel();
 
         #endregion
 

@@ -1,13 +1,10 @@
-﻿using isil.Properties;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using NLog;
 using System.ComponentModel;
+using Cacm.Isils.Properties;
+
 namespace isil
 {
     class usbPort
@@ -28,13 +25,13 @@ namespace isil
             userDataReceivedToObjectTimer.Interval = new TimeSpan(100000);
 
             //initializing student object 
-            student[] studentObject = staticSharedFunctions.InitializeArray<student>(staticSharedFunctions.getNumberOfStudentsSeats());
+         //   student[] studentObject = staticSharedFunctions.InitializeArray<student>(staticSharedFunctions.getNumberOfStudentsSeats());
            // studentService = studentService.Instance();
-            for (int i = 0; i < staticSharedFunctions.getNumberOfStudentsSeats(); i++)
-            {
+          //  for (int i = 0; i < staticSharedFunctions.getNumberOfStudentsSeats(); i++)
+         //   {
            //     studentService.addStudent(studentObject[i]);
-                studentObject[i].StudentSeatno = i;
-            }
+         //       studentObject[i].StudentSeatno = i;
+          //  }
         }
 
         private void userReceivedStringToObject(object sender, EventArgs e)
