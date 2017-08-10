@@ -1,5 +1,6 @@
 ﻿using NLog;
 using System;
+using System.Windows;
 
 namespace Cacm.Isils.Model.Lib
 {
@@ -7,8 +8,16 @@ namespace Cacm.Isils.Model.Lib
     /// Common Shared Properties & Methods
     /// 
     /// </summary>
-    static class CommonPropertiesAndMethods
+    static class CommonPropertiesAndMethodsHelper
     {
+        public static string FindNameFromResource(ResourceDictionary dictionary,
+          object resourceItem)
+        {
+            return (dictionary.Contains(resourceItem)) ?
+                   dictionary[resourceItem].ToString() :
+                   string.Empty;
+        }
+
         /// <summary>
         /// The registry key registration identifier
         /// </summary>

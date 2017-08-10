@@ -1,0 +1,181 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Cacm.Isils">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!-- Order is important -->
+        <ResourceDictionary Source="Colors.xaml" />
+        <ResourceDictionary Source="Fonts.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+    
+
+    <!-- icon with text button -->
+    <Style x:Key="IconWithTextButton" TargetType="{x:Type RadioButton}">
+
+
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+           
+        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
+        <Setter Property="BorderThickness" Value="0" />      
+        <Setter Property="Padding" Value="10,5,10,5" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="local:ToggleOnCheckedBackgroundAttachedProperties.Value" Value="{StaticResource CacmCyanBrush}"/>
+        <Setter Property="local:ToggleOnCheckedTextColorAttachedProperties.Value" Value="{StaticResource ForegroundLightBrush}"/>
+        <Setter Property="local:ToggleOnCheckedContentAttachedProperties.Value" Value="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="local:ToggleOnCheckedIconAttachedProperties.Value" Value="{Binding Uid, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            
+                            SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
+
+
+                        <Grid>
+                            <StackPanel  
+                                 
+                              Orientation="Horizontal"  Margin="{TemplateBinding Padding}" SnapsToDevicePixels="True"  VerticalAlignment="Center"  HorizontalAlignment="Center">
+                                
+                                <TextBlock
+                                    x:Name="IconText"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Text="{TemplateBinding Uid}" 
+                                    Focusable="False" 
+                                    FontFamily="{DynamicResource IcoMoon}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    FontSize="{StaticResource FontSizeMedium}" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                   />
+                                
+                                <TextBlock
+                                    x:Name="Text"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FontSize, Converter={local:FontSizeConveters}}" 
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"         
+                                    Text="{TemplateBinding Content}" TextWrapping="Wrap" Margin="5,3,0,0" 
+                                 />
+                                
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border"
+                                    Value="{StaticResource BackgroundMediumDarkBrush}"
+                                    />
+                         
+
+                        </Trigger>
+                     
+                        <Trigger Property="IsChecked" Value="True">
+                            <!--change the text of the icon text on checked-->
+                            <Setter TargetName="IconText" Property="Text" 
+                            Value="{Binding Path=(local:ToggleOnCheckedIconAttachedProperties.Value),
+                            RelativeSource={RelativeSource TemplatedParent}}"
+                            />
+                            <!--change the textq of the text on checked-->
+                            <Setter TargetName="Text" Property="Text" 
+                            Value="{Binding Path=(local:ToggleOnCheckedContentAttachedProperties.Value),
+                            RelativeSource={RelativeSource TemplatedParent}}"
+                            />
+                            
+                            <!--change the color of the icon text on checked-->
+                            <Setter TargetName="IconText" Property="Foreground" 
+                            Value="{Binding Path=(local:ToggleOnCheckedTextColorAttachedProperties.Value),
+                            RelativeSource={RelativeSource TemplatedParent}}"
+                            />
+                            <!--change the color of the text on checked-->
+                            <Setter TargetName="Text" Property="Foreground" 
+                            Value="{Binding Path=(local:ToggleOnCheckedTextColorAttachedProperties.Value),
+                            RelativeSource={RelativeSource TemplatedParent}}"
+                            />
+                            <!--change the color of the background on checked-->
+                            <Setter TargetName="border" Property="Background" 
+                            Value="{Binding Path=(local:ToggleOnCheckedBackgroundAttachedProperties.Value),
+                            RelativeSource={RelativeSource TemplatedParent}}"
+                            />
+
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource ForegroundDarkBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- only icon button -->
+    <Style x:Key="IconButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="Background" Value="{StaticResource BackgroundVeryDarkBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+
+
+        <Setter Property="Padding" Value="30" />
+        <Setter Property="Margin" Value="0" />
+
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            
+                            SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
+
+
+                        <Grid>
+                             
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                    Focusable="False" 
+                                    FontFamily="{StaticResource IcoMoon}"
+                                    FontSize="{TemplateBinding FontSize}" 
+                                          Foreground="{StaticResource BackgroundLightBrush}"
+                                    Margin="0" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource BackgroundDarkBrush}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource CacmCyanBrush}"/>
+
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource ForegroundDarkBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

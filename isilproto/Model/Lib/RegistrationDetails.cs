@@ -20,7 +20,7 @@ namespace Cacm.Isils.Model.Lib
             return EasyEncryption.MD5.ComputeMD5Hash(
                 ThumbPrint.Value() 
                 + fullName 
-                + CommonPropertiesAndMethods.registryPassword
+                + CommonPropertiesAndMethodsHelper.registryPassword
                 );
         }
 
@@ -45,10 +45,10 @@ namespace Cacm.Isils.Model.Lib
 
             try
             {
-                 registryKeyDetails = Registry.CurrentUser.OpenSubKey(@CommonPropertiesAndMethods.registryPath);
+                 registryKeyDetails = Registry.CurrentUser.OpenSubKey(CommonPropertiesAndMethodsHelper.registryPath);
             }
             catch (Exception e) {
-                @CommonPropertiesAndMethods.Logger.Fatal(e.Message.ToString());
+                CommonPropertiesAndMethodsHelper.Logger.Fatal(e.Message.ToString());
             }
         }
 
@@ -60,8 +60,8 @@ namespace Cacm.Isils.Model.Lib
         /// </value>
         public string RegistrationId
         {
-            get => registryKeyDetails?.GetValue(@CommonPropertiesAndMethods.registryKeyRegistrationId).ToString();
-            set => registryKeyDetails.SetValue(@CommonPropertiesAndMethods.registryKeyRegistrationId,value) ;
+            get => registryKeyDetails?.GetValue(CommonPropertiesAndMethodsHelper.registryKeyRegistrationId).ToString();
+            set => registryKeyDetails.SetValue(CommonPropertiesAndMethodsHelper.registryKeyRegistrationId,value) ;
         }
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace Cacm.Isils.Model.Lib
         /// 
         public string RegistrationFullName
         {
-            get => registryKeyDetails?.GetValue(@CommonPropertiesAndMethods.registryKeyFullname).ToString();
-            set => registryKeyDetails.SetValue(@CommonPropertiesAndMethods.registryKeyFullname, value);
+            get => registryKeyDetails?.GetValue(CommonPropertiesAndMethodsHelper.registryKeyFullname).ToString();
+            set => registryKeyDetails.SetValue(CommonPropertiesAndMethodsHelper.registryKeyFullname, value);
             
         }
 

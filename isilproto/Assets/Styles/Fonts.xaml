@@ -6,8 +6,9 @@
 
     <FontFamily x:Key="Digit">pack://appliction;,,,/Assets/Fonts/#Digital-7</FontFamily>
     <FontFamily x:Key="Melbourne">pack://appliction;,,,/Assets/Fonts/#Melbourne</FontFamily>
-    <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Fonts/#FontAwesome</FontFamily>
-    
+    <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Assets/Fonts/#FontAwesome</FontFamily>
+    <FontFamily x:Key="IcoMoon">pack://appliction;,,,/Assets/Fonts/#icomoon</FontFamily>
+
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource Melbourne}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
@@ -28,6 +29,7 @@
     <system:Double x:Key="FontSizeSmaller">10</system:Double>
     <system:Double x:Key="FontSizeSmall">12</system:Double>
     <system:Double x:Key="FontSizeRegular">14</system:Double>
+    <system:Double x:Key="FontSizeMedium">17</system:Double>
     <system:Double x:Key="FontSizeLarge">20</system:Double>
     <system:Double x:Key="FontSizeXLarge">24</system:Double>
     <system:Double x:Key="FontSizeXXLarge">30</system:Double>
@@ -44,4 +46,27 @@
     <system:String x:Key="FontAwesomeArrowLeftIcon">&#xf060;</system:String>
     <system:String x:Key="FontAwesomeTickIcon">&#xf00c;</system:String>
     <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>
+
+
+    <system:String x:Key="IcoMoonDownDockIcon">&#xE900;</system:String>
+    <system:String x:Key="IcoMoonCacmLogo">&#xe917;</system:String>
+    <system:String x:Key="IcoMoonDockleft">&#xe916;</system:String>
+    <system:String x:Key="IcoMoonReset">&#xe914;</system:String>
+    <system:String x:Key="IcoMoonRec">&#xe911;</system:String>
+    <system:String x:Key="IcoMoonAux">&#xe90c;</system:String>
+    <system:String x:Key="IcoMoonOnetoOne">&#xe900;</system:String>
+    <system:String x:Key="IcoMoonCloseGroup">&#xe907;</system:String>
+    <system:String x:Key="IcoMoonOpenGroup">&#xe906;</system:String>
+    <system:String x:Key="IcoMoonPushToTalk">&#xe904;</system:String>
+    <system:String x:Key="IcoMoonHandRasied">&#xe901;</system:String>
+    <system:String x:Key="IcoMoonCourseware">&#xe902;</system:String>
+    <system:String x:Key="IcoMoonUser">&#xe903;</system:String>
+    <system:String x:Key="IcoMoonPlay">&#xea15;</system:String>
+    <system:String x:Key="IcoMoonPause">&#xea16;</system:String>
+    <system:String x:Key="IcoMoonStop">&#xea17;</system:String>
+    <system:String x:Key="IcoMoonVolumeLow">&#xea28;</system:String>
+    <system:String x:Key="IcoMoonVolumeMute">&#xea2a;</system:String>
+    <system:String x:Key="IcoMoonMenu">&#xe90b;</system:String>
+    <system:String x:Key="IcoMoonHeadSet">&#xe90d;</system:String>
+    <system:String x:Key="IcoMoonPoll">&#xe905;</system:String>
 </ResourceDictionary>

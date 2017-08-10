@@ -152,9 +152,12 @@
     </ApplicationDefinition>
     <Compile Include="Assets\classes\message.cs" />
     <Compile Include="Assets\classes\student.cs" />
+    <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\ToggleButtonAttachedProperties.cs" />
+    <Compile Include="Model\Data\ActiveButtonColorType.cs" />
     <Compile Include="Model\Lib\RegistrationDetails.cs" />
     <Compile Include="Model\Lib\ThumbPrint.cs" />
-    <Compile Include="Model\Lib\CommonPropertiesAndMethods.cs" />
+    <Compile Include="Model\Lib\CommonPropertiesAndMethodsHelper.cs" />
     <Compile Include="Model\Base\BaseModel.cs" />
     <Compile Include="Model\Data\AudioChannelType.cs" />
     <Compile Include="Model\Data\PollAnsDataType.cs" />
@@ -167,6 +170,9 @@
     <Compile Include="Controls\Students\StudentUserListControl.xaml.cs">
       <DependentUpon>StudentUserListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueConveters\BaseValueConveters.cs" />
+    <Compile Include="ValueConveters\FontSizeConveters.cs" />
+    <Compile Include="ValueConveters\ToggleButtonCheckedBackgroundConveter.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\DesignViewModel\StudentListDesignViewModel.cs" />
     <Compile Include="ViewModel\SplashViewModel.cs" />
@@ -175,9 +181,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
+    <Page Include="Assets\Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Splash.xaml">
       <SubType>Designer</SubType>
@@ -545,6 +562,7 @@
     <Content Include="Assets\LibVlc\plugins\visualization\libgoom_plugin.dll" />
     <Content Include="Assets\LibVlc\plugins\visualization\libprojectm_plugin.dll" />
     <Content Include="Assets\LibVlc\plugins\visualization\libvisual_plugin.dll" />
+    <Resource Include="Assets\Fonts\icomoon.ttf" />
     <None Include="Assets\LibVlc\plugins\plugins.dat" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest">

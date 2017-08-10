@@ -1,0 +1,119 @@
+﻿<Window x:Class="Cacm.Isils.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:uiExtensions="clr-namespace:Cacm.Isils"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="MainWindow" Height="900" Width="800" FontSize="{DynamicResource FontSizeVerySmaller}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+
+        <!--#region 2nd row buttons-->
+        <Grid  Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <!--#region  1st column for all icon with text button-->
+            <UniformGrid Rows="1" Grid.Column="0">
+                <RadioButton Content = "Courseware"     
+                       Style="{DynamicResource IconWithTextButton}"
+                       Foreground="{StaticResource CacmCyanDarkBrush}"
+                       Uid="{DynamicResource IcoMoonCourseware}" 
+                       Width="Auto"
+                       
+                />
+                    <RadioButton Content = "Open Group"     
+                       Style="{DynamicResource IconWithTextButton}"
+                         Uid="{DynamicResource IcoMoonOpenGroup}" 
+                         Width="Auto"
+                         GroupName="CallButton"
+                        Background="{StaticResource BackgroundVeryDarkBrush}"
+                      />
+                    <RadioButton Content = "Close Group" 
+                                 GroupName="CallButton"
+                                 Style="{DynamicResource IconWithTextButton}"
+                                 Uid="{DynamicResource IcoMoonCloseGroup}"   
+                                 Width="Auto"
+                      />
+                    <RadioButton Content = "One To One"    
+                                 GroupName="CallButton"
+                                 Style="{DynamicResource IconWithTextButton}"
+                                 Uid="{DynamicResource IcoMoonOnetoOne}"  
+                                 Width="Auto"
+                                 Background="{StaticResource BackgroundVeryDarkBrush}"
+                      />
+                    <RadioButton Content = "Push To Talk"  
+                                 GroupName="CallButton"
+                                 Style="{DynamicResource IconWithTextButton}"
+                                 Uid="{DynamicResource IcoMoonPushToTalk}"          
+                                 Width="Auto"
+                      />
+                    <RadioButton Content = "Hand Raise"     
+                       Style="{DynamicResource IconWithTextButton}"
+                       Uid="{DynamicResource IcoMoonHandRasied}"         
+                       Width="Auto"
+                       Background="{StaticResource BackgroundVeryDarkBrush}"
+                       uiExtensions:ToggleOnCheckedBackgroundAttachedProperties.Value="{StaticResource CacmYellowBrush}"         
+                       uiExtensions:ToggleOnCheckedTextColorAttachedProperties.Value="{StaticResource ForegroundVeryDarkBrush}"
+                      />
+                    <RadioButton Content = "Poll"     
+                    Style="{DynamicResource IconWithTextButton}"
+                    Uid="{DynamicResource IcoMoonPoll}"  
+                    Width="Auto"
+                    uiExtensions:ToggleOnCheckedBackgroundAttachedProperties.Value="{StaticResource CacmYellowBrush}"         
+                    uiExtensions:ToggleOnCheckedTextColorAttachedProperties.Value="{StaticResource ForegroundVeryDarkBrush}" 
+                      />
+                    <RadioButton Content = "Aux"     
+                       Style="{DynamicResource IconWithTextButton}"
+                       Uid="{DynamicResource IcoMoonAux}"   
+                       Width="Auto"
+                      />
+                    <RadioButton Content = "Headset"     
+                       Style="{DynamicResource IconWithTextButton}"
+                       Uid="{DynamicResource IcoMoonHeadSet}"     
+                       Width="Auto"
+                       Foreground="{StaticResource CacmOrangeBrush}"
+                       Background="{StaticResource BackgroundVeryDarkBrush}"
+                       uiExtensions:ToggleOnCheckedBackgroundAttachedProperties.Value="{StaticResource CacmOrangeBrush}" 
+                       uiExtensions:ToggleOnCheckedContentAttachedProperties.Value="PA"
+                       uiExtensions:ToggleOnCheckedIconAttachedProperties.Value="{StaticResource IcoMoonReset}"       
+                      />
+
+            </UniformGrid>
+            <!--#endregion-->
+
+            <!--#region  2nd column for all icon with text button-->
+            <UniformGrid Rows="1" Grid.Column="1" >
+                <ToggleButton Content = "{StaticResource IcoMoonVolumeLow}"     
+                    Style="{DynamicResource IconButton}" Width="Auto"
+                      />
+                <ToggleButton Content = "{StaticResource IcoMoonPlay}"     
+                    Style="{DynamicResource IconButton}" Width="Auto" 
+                      />
+                <ToggleButton Content = "{StaticResource IcoMoonRec}"     
+                    Style="{DynamicResource IconButton}" Width="Auto"   
+                      />
+                <ToggleButton Content = "{StaticResource IcoMoonMenu}"     
+                    Style="{DynamicResource IconButton}" Width="Auto"        
+                      />
+                <ToggleButton Content = "{StaticResource IcoMoonUser}"     
+                    Style="{DynamicResource IconButton}" Width="Auto"     
+                      />
+
+            </UniformGrid>
+            <!--#endregion-->
+        </Grid>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="85,90,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <!--#endregion-->
+    </Grid>
+</Window>

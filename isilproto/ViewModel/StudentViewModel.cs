@@ -9,8 +9,20 @@ namespace Cacm.Isils.ViewModel
     {
 
         #region Properties
+
+        /// <summary>
+        /// Gets or sets the instance.
+        /// </summary>
+        /// <value>
+        /// The instance.
+        /// </value>
         public static StudentViewModel Instance { get; set; } //single instance for all the view
-        public ObservableCollection<StudentModel> student;  // student list
+
+        /// <summary>
+        /// The student
+        /// </summary>
+        private ObservableCollection<StudentModel> student;  // student list
+
         /// <summary>
         /// the list of students for the view
         /// </summary>

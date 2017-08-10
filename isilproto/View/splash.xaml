@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views = "clr-namespace:Cacm.Isils.ViewModel"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -12,6 +13,8 @@
 
 
     <Grid>
+      
+
 
         <!--#region Gradient Background-->
         <Rectangle Margin="0" Stroke="{StaticResource CacmCyanVeryDarkBrush}" StrokeThickness="6">
@@ -60,11 +63,12 @@
                Foreground="{StaticResource ForegroundVeryLightBrush}"
                />
 
-        <Label  Content="ISIL ESSENTIAL 8.1" HorizontalAlignment="Left" 
+        <Label  Content="{Binding SplashProductName}" HorizontalAlignment="Left" 
                 Margin="20,100,0,0" VerticalAlignment="Top" FontSize="{StaticResource FontSizeSmall }" 
                 Foreground="{StaticResource ForegroundLightBrush}" 
-                FontWeight="Bold"/>
-        <Label Content="Loading....." HorizontalAlignment="Left" 
+                FontWeight="Bold" FontFamily="Melbourne"/>
+        
+        <Label Content="{Binding SplashLoadingText}" HorizontalAlignment="Left" 
                Margin="20,115,0,0" VerticalAlignment="Top"  
                FontSize="{StaticResource FontSizeSmaller }" 
                Foreground="{StaticResource ForegroundLightBrush}" />
@@ -74,7 +78,7 @@
                    Foreground="{StaticResource ForegroundLightBrush}" 
                    Margin="25,80,29,0" FontFamily="Melbourne" Height="100" 
                    >
-            <Run Text="Centre for Advanced Communication (CACM) is the manufacturer and patent holder of Interactive Software Integrated Learning System (ISILS) which is the key to run our se lf-developed Interactive Language Communication Labs earning the trademark with goodwill as Skill Junction Labs." 
+            <Run Text="{Binding SplashDetailsText}" 
                  FontFamily="Melbourne"/>
 
         </TextBlock>

@@ -29,13 +29,11 @@ namespace Cacm.Isils.Model
         /// </value>
         public String StudentPhoto
         {
-            get
-            {
-                return studentPhoto;
-            }
+            get => studentPhoto;
 
             set
             {
+
                 if (studentPhoto != value)
                 {
                     studentPhoto = value;
