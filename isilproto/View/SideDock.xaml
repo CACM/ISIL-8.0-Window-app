@@ -1,0 +1,246 @@
+﻿<Window x:Class="Cacm.Isils.View.SideDock"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uiExtensions="clr-namespace:Cacm.Isils"
+        xmlns:UC="clr-namespace:Cacm.Isils.Controls"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+        xmlns:VM="clr-namespace:Cacm.Isils.ViewModel"
+        x:Name="SideDockWindow"         
+        WindowStyle="None"
+        Margin="0"
+        Width="30"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        mc:Ignorable="d"
+          >
+    <!--#region  onload / unload events-->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding WindowloadCommand}" CommandParameter="{Binding ElementName=SideDockWindow}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding WindowUnloadCommand}" CommandParameter="{Binding ElementName=SideDockWindow}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <!--#endregion-->
+
+    <Grid Background="{DynamicResource BackgroundDarkBrush}" d:DataContext="{x:Static VM:SideDockViewModel.Instance}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--student area-->
+        <UC:StudentUserListControl 
+            uiExtensions:UserListFlowDirectionAttachedProperties.Value ="LeftToRight" 
+            Visibility="{Binding ElementName=StudentMenu,
+            Path=IsChecked,Converter={uiExtensions:BooleanToVisibilityConveter}}"          
+            VerticalAlignment="Top"
+            Grid.Column="1"
+            />
+        
+        <StackPanel  Orientation="Vertical" Grid.Column="0">
+                <ToggleButton   Content = "{StaticResource IcoMoonUser}"                
+                                IsChecked="{Binding  ApplicationToolBar.ToolBar.Students}"
+                                ToolTip="{DynamicResource StringStudentList}"
+                                x:Name="StudentMenu"
+                                Style="{DynamicResource IconGrowButton}"
+                                Width="50" 
+                                Height="50"   
+                                Click="StudentMenu_Click"
+                                Command="{Binding LoadStudentCommand}" CommandParameter="{Binding ElementName=SideDockWindow}"
+                                />  
+                <Button   Content = "{StaticResource IcoMoonReset}"     
+                          Background="{DynamicResource BackgroundDarkBrush}"
+                          ToolTip="{DynamicResource StringReset}"
+                          Style="{DynamicResource IconGlowSimpleButton}"
+                          Width="50" 
+                          Height="50"
+                          Command="{Binding ApplicationToolBar.ResetCommand}"
+                          />       
+                    <!-- isEnable converter for popup close event by stayopen-->
+                <ToggleButton  Content = "{Binding ElementName=sliderVolume,Path=Value,
+                               Converter={uiExtensions:VolumeButtonIconConveter}}"   
+                               ToolTip="{DynamicResource StringVolume}"
+                               x:Name="btnVolume"
+                               IsEnabled="{Binding ElementName=popupVolume,Path=IsOpen,Converter={uiExtensions:ReverseBooleanConveter} }"   
+                               Style="{DynamicResource IconGrowButton}" Width="50" Height="50"                            
+                                />
+                    <!--#region popup volume control-->
+                    <Popup Name="popupVolume" 
+                           PopupAnimation="Slide"  
+                           Placement="Left" 
+                           PlacementTarget="{Binding ElementName=btnVolume}" 
+                           StaysOpen="False"
+                           IsOpen="{Binding ElementName=btnVolume, Path=IsChecked }"
+                           HorizontalAlignment="Center" VerticalAlignment="Center">                    
+                        <Grid  Background="{StaticResource BackgroundVeryDarkBrush}" 
+                               Height="100" Width="50" >
+                    <Slider Name="sliderVolume" 
+                                    Margin="10" HorizontalContentAlignment="Center" 
+                                    Orientation="Vertical" VerticalContentAlignment="Center"  
+                                    Style="{DynamicResource SliderVolumeControl}"  Value="0.5" 
+                                    Grid.Row="2" HorizontalAlignment="Center" Maximum="1" TickFrequency="0.1"/>
+                </Grid>
+                    </Popup>
+                    <!--#endregion-->
+                <ToggleButton Content = "{StaticResource IcoMoonPlay}"      
+                              Style="{DynamicResource IconGrowButton}" Width="50" Height="50"
+                              ToolTip="{DynamicResource StringPlay}"
+                              Background="{DynamicResource BackgroundDarkBrush}"
+                              uiExtensions:ToggleOnCheckedIconAttachedProperties.Value="{StaticResource IcoMoonPause}" 
+                              uiExtensions:ToggleOnCheckedTextColorAttachedProperties.Value="{StaticResource CacmGreenBrush}" 
+                              />
+                <ToggleButton Content = "{StaticResource IcoMoonRec}"     
+                              Style="{DynamicResource IconGrowButton}" Width="50" Height="50"
+                              ToolTip="{DynamicResource StringRecord}"
+                              uiExtensions:ToggleOnCheckedTextColorAttachedProperties.Value="{StaticResource CacmRedBrush}"
+                              />
+                <ToggleButton  Content = "{StaticResource IcoMoonMenu}"     
+                               ToolTip="{DynamicResource StringFileBrowse}"
+                               x:Name="AudioMenuList"
+                               Background="{DynamicResource BackgroundDarkBrush}"
+                               IsEnabled="{Binding ElementName=popupPlayList,
+                                           Path=IsOpen,Converter={uiExtensions:ReverseBooleanConveter} }"   
+                               Style="{DynamicResource IconGrowButton}" 
+                               Width="50" Height="50"                               
+                               />
+                <!--#region popup menu control for file browser and file history-->
+                <Popup 
+                    Name="popupPlayList"
+                    StaysOpen="False"     
+                    PopupAnimation="Slide"   Placement="Left" 
+                    PlacementTarget="{Binding ElementName=AudioMenuList}" 
+                    AllowsTransparency="True" 
+                    IsOpen="{Binding ElementName=AudioMenuList, Path=IsChecked}" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"                     
+                    >
+                    <!--#region  list for recent played files-->
+                    <Grid>
+                        <UC:FileListControl/>
+                    </Grid>
+                    <!--#endregion-->
+                </Popup>
+                <!--#endregion-->          
+                <ToggleButton  Content = "{StaticResource IcoMoonHeadSet}"     
+                               uiExtensions:ToggleOnCheckedIconAttachedProperties.Value="{StaticResource IcoMoonReset}" 
+                               Foreground="{DynamicResource CacmOrangeBrush}"
+                               ToolTip="HeadSet/PA"
+                               Style="{DynamicResource IconGrowButton}"
+                               Width="50" 
+                               Height="50"
+                               Command="{Binding ApplicationToolBar.HeadSetCommand}"
+                               IsChecked="{Binding ApplicationToolBar.ToolBar.HeadSet}"
+                               />
+                <ToggleButton  Content = "{StaticResource IcoMoonAux}"     
+                               ToolTip="Browse File"
+                               Style="{DynamicResource IconGrowButton}"
+                               Width="50" 
+                               Height="50"                            
+                               Background="{DynamicResource BackgroundDarkBrush}"
+                               Command="{Binding ApplicationToolBar.AuxCommand}"
+                               IsChecked="{Binding ApplicationToolBar.ToolBar.Aux}"
+                               />
+                 <!--#region  poll menu-->
+                <Popup Name="PopupPollTimer"
+                       Margin="0 10 0 0"
+                       PopupAnimation="Slide"  StaysOpen = "True" Placement="Right" 
+                       PlacementTarget="{Binding ElementName=PollButton}" 
+                       AllowsTransparency="True"
+                       IsOpen="{Binding ApplicationToolBar.ToolBar.PollStatus,Mode=OneWay}"
+                       Width="310"  MaxHeight="250"
+                        >
+                    <i:Interaction.Behaviors>
+                        <uiExtensions:MouseDragPopupBehavior/>
+                    </i:Interaction.Behaviors>
+                    <Grid Background="{StaticResource BackgroundDarkBrush}"   >
+                        <UC:PollTimer  VerticalAlignment="Top" />
+                    </Grid>
+                </Popup>
+
+                <uiExtensions:OptionalRadioButton   Content = "{StaticResource IcoMoonPoll}"     
+                                    ToolTip="Poll"
+                                    Command="{Binding ApplicationToolBar.PollCommand}"  
+                                    CommandParameter="{Binding Path=IsChecked, 
+                                                        RelativeSource={RelativeSource Self}}"
+                                    x:Name="PollButton"
+                                    IsChecked="{Binding ApplicationToolBar.ToolBar.PollStatus}" 
+                                    Style="{DynamicResource IconGrowButton}"
+                                    Width="50" 
+                                    Height="50" 
+                                    GroupName="PollGrpup"
+                                    uiExtensions:OptionalRadioButton.IsOptional="True" 
+                                   />
+                    <!--#endregion-->
+                <uiExtensions:OptionalRadioButton   Content = "{StaticResource IcoMoonHandRasied}"     
+                                    ToolTip="{DynamicResource StringHandRaise}"
+                                    Style="{DynamicResource IconGrowButton}"
+                                    Width="50" 
+                                    Height="50"  
+                                    Background="{DynamicResource BackgroundDarkBrush}"
+                                    Command="{Binding ApplicationToolBar.HandRaiseCommand}"
+                                    IsChecked="{Binding ApplicationToolBar.ToolBar.HandRaise}"
+                                    GroupName="PollGrpup"
+                                    uiExtensions:OptionalRadioButton.IsOptional="True"                             
+                                   />
+                <uiExtensions:OptionalRadioButton   Content = "{StaticResource IcoMoonPushToTalk}"     
+                                    ToolTip="{DynamicResource StringPushToTalk}"
+                                    Style="{DynamicResource IconGrowButton}"
+                                    Width="50" 
+                                    Height="50"                            
+                                    Command="{Binding ApplicationToolBar.PushToTalkCommand}"
+                                    IsChecked="{Binding ApplicationToolBar.ToolBar.PushToTalk}"
+                                    GroupName="CallButton"
+                                    uiExtensions:OptionalRadioButton.IsOptional="True"   
+                                   />
+                <uiExtensions:OptionalRadioButton   Content = "{StaticResource IcoMoonOnetoOne}"     
+                                    ToolTip="{DynamicResource StringOneToOne}"
+                                    Style="{DynamicResource IconGrowButton}"
+                                    Width="50" 
+                                    Height="50"   
+                                    Background="{DynamicResource BackgroundDarkBrush}"
+                                    Command="{Binding ApplicationToolBar.OneToOneCommand}"
+                                    IsChecked="{Binding ApplicationToolBar.ToolBar.OneToOne}"
+                                    GroupName="CallButton"
+                                    uiExtensions:OptionalRadioButton.IsOptional="True" 
+                                   />
+                <uiExtensions:OptionalRadioButton   Content = "{StaticResource IcoMoonCloseGroup}"     
+                                    ToolTip="{DynamicResource StringClosedGroup}"
+                                    Style="{DynamicResource IconGrowButton}"
+                                    Width="50" 
+                                    Height="50"   
+                                    Command="{Binding ApplicationToolBar.CloseGroupCommand}"
+                                    IsChecked="{Binding ApplicationToolBar.ToolBar.CloseGroup}"
+                                    GroupName="CallButton"
+                                    uiExtensions:OptionalRadioButton.IsOptional="True" 
+                                   />
+                <uiExtensions:OptionalRadioButton   Content = "{StaticResource IcoMoonOpenGroup}"     
+                                    ToolTip="{DynamicResource StringOpenGroup}"
+                                    Style="{DynamicResource IconGrowButton}"
+                                    Width="50" 
+                                    Height="50" 
+                                    Background="{DynamicResource BackgroundDarkBrush}"
+                                    Command="{Binding ApplicationToolBar.OpenGroupCommand}"
+                                    IsChecked="{Binding ApplicationToolBar.ToolBar.OpenGroup}" 
+                                    GroupName="CallButton"
+                                    uiExtensions:OptionalRadioButton.IsOptional="True" 
+                                   />
+                <Button         Content = "{StaticResource IcoMoonDockNormal}"     
+                                ToolTip="{DynamicResource StringNormalView}"
+                                Style="{DynamicResource IconGlowSimpleButton}"
+                                Width="50" 
+                                Height="50"   
+                                Click="NormalDock_Click"                           
+                               />
+                <Button         Content = "{StaticResource IcoMoonClose}"     
+                                ToolTip="{DynamicResource StringClose}"
+                                Style="{DynamicResource IconGlowSimpleButton}"
+                                Width="50" 
+                                Height="50" 
+                                />
+        </StackPanel>
+   
+    </Grid>
+</Window>

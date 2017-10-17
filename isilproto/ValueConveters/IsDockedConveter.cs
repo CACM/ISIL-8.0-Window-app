@@ -1,15 +1,16 @@
 ﻿
 using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Cacm.Isils { 
-    class ToggleButtonCheckedBackgroundConveter : BaseValueConverter<ToggleButtonCheckedBackgroundConveter>
+    class IsDockedConveter : BaseValueConverter<BooleanToVisibilityConveter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Console.Write("value"+value);
-           return new SolidColorBrush(Colors.Blue);
+         
+           return  (Boolean) value && (Boolean)parameter ? true : false;   
 
         }
 

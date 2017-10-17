@@ -2,7 +2,7 @@
 using Cacm.Isils.Model.Data;
 using System.Collections.ObjectModel;
 
-namespace Cacm.Isils.ViewModel.DesignViewModel
+namespace Cacm.Isils.ViewModel 
 {
     class StudentListDesignViewModel:StudentViewModel
     {

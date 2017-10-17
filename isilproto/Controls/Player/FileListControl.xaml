@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Cacm.Isils.Controls.FileListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cacm.Isils.Controls"
+             xmlns:uiExtensions="clr-namespace:Cacm.Isils"
+             mc:Ignorable="d" 
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+       
+             xmlns:VM="clr-namespace:Cacm.Isils.ViewModel"
+             d:DesignHeight="100" d:DesignWidth="300">
+
+
+    <Grid Background="{StaticResource BackgroundDarkBrush}"    d:DataContext="{x:Static VM:FileListDesignModel.Instance}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" Grid.Row="0">
+            <ItemsControl ItemsSource="{Binding FileListItemsReverse}"  >
+
+                <ItemsControl.ItemTemplate> 
+                    <DataTemplate >
+                        <local:FileListItemControl >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding Path=DataContext.PlayCommand, 
+                                        RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                        CommandParameter="{Binding FullPath }"                                        
+                                   />
+                                </i:EventTrigger>                               
+                            </i:Interaction.Triggers>
+                        </local:FileListItemControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>            
+        </ScrollViewer>
+        <Button 
+            Command="{Binding FileBrowseCommand}"
+            CommandParameter="{Binding Vlc}"
+                            Content="{DynamicResource StringFileBrowse}"
+                            Grid.Row="1" Height="40"
+                            Style="{DynamicResource TextButton}"
+                            Width="Auto"
+                            />
+       
+
+    </Grid>
+</UserControl>

@@ -6,6 +6,10 @@
     public enum PollAnsDataType
     {
         /// <summary>
+        /// none
+        /// </summary>
+        NONE = 0,
+        /// <summary>
         /// Poll Type A = 1 
         /// </summary>
         A = 1,

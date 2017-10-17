@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace isil.UserViews.Students
+namespace Cacm.Isils.Controls
 {
     /// <summary>
     /// Interaction logic for StudentUserControl.xaml

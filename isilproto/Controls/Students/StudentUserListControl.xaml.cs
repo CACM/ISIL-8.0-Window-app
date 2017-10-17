@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace isil.UserViews.Students
+namespace Cacm.Isils.Controls
 {
     /// <summary>
     /// Interaction logic for StudentUserListControl.xaml

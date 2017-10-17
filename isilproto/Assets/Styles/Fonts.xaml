@@ -33,40 +33,49 @@
     <system:Double x:Key="FontSizeLarge">20</system:Double>
     <system:Double x:Key="FontSizeXLarge">24</system:Double>
     <system:Double x:Key="FontSizeXXLarge">30</system:Double>
-
-    <system:String x:Key="FontAwesomeChatIcon">&#xf086;</system:String>
-    <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>
-    <system:String x:Key="FontAwesomePictureIcon">&#xf1c5;</system:String>
-    <system:String x:Key="FontAwesomeCogIcon">&#xf013;</system:String>
+    <system:Double x:Key="FontSizeXXXLarge">50</system:Double>
+    
+    <system:String x:Key="FontAwesomeVideoFile">&#xf1c8;</system:String>
+    <system:String x:Key="FontAwesomeAudioFile">&#xf1c7;</system:String>
+    <system:String x:Key="FontAwesomeOtherFile">&#xf0f6;</system:String>
+    <system:String x:Key="FontAwesomeClockIcon">&#xf017;</system:String>
     <system:String x:Key="FontAwesomeSearchIcon">&#xf002;</system:String>
-    <system:String x:Key="FontAwesomeEllipsisIcon">&#xf141;</system:String>
-    <system:String x:Key="FontAwesomeEllipsisVerticalIcon">&#xf142;</system:String>
-    <system:String x:Key="FontAwesomePaperclipIcon">&#xf0c6;</system:String>
-    <system:String x:Key="FontAwesomeEmojiIcon">&#xf118;</system:String>
-    <system:String x:Key="FontAwesomeArrowLeftIcon">&#xf060;</system:String>
-    <system:String x:Key="FontAwesomeTickIcon">&#xf00c;</system:String>
-    <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>
-
-
-    <system:String x:Key="IcoMoonDownDockIcon">&#xE900;</system:String>
-    <system:String x:Key="IcoMoonCacmLogo">&#xe917;</system:String>
-    <system:String x:Key="IcoMoonDockleft">&#xe916;</system:String>
-    <system:String x:Key="IcoMoonReset">&#xe914;</system:String>
-    <system:String x:Key="IcoMoonRec">&#xe911;</system:String>
+    <system:String x:Key="FontAwesomeHome">&#xf015;</system:String>
+    <system:String x:Key="FontAwesomeRefresh">&#xf021;</system:String>
+    <system:String x:Key="FontAwesomeRightArrow">&#xf061;</system:String>
+    <system:String x:Key="FontAwesomeLeftArrow">&#xf060;</system:String>
+    <system:String x:Key="FontAwesomeVolumeUp">&#xf028;</system:String>
+    <system:String x:Key="FontAwesomeVolumeOff">&#xf026;</system:String>
+    <system:String x:Key="FontAwesomeVolumeDown">&#xf027;</system:String>
+    <system:String x:Key="FontAwesomeZoomIn">&#xf00e;</system:String>
+    <system:String x:Key="FontAwesomeZoomOut">&#xf010;</system:String>
+    <system:String x:Key="FontAwesomeZoomReset">&#xf002;</system:String>    
+    
+    
+    <system:String x:Key="IcoMoonCacmLogo">&#xe903;</system:String>
+    <system:String x:Key="IcoMoonDockNormal">&#xe904;</system:String>
+    <system:String x:Key="IcoMoonDockleft">&#xe904;</system:String>
+    <system:String x:Key="IcoMoonReset">&#xe905;</system:String>
+    <system:String x:Key="IcoMoonRec">&#xe90d;</system:String>
     <system:String x:Key="IcoMoonAux">&#xe90c;</system:String>
-    <system:String x:Key="IcoMoonOnetoOne">&#xe900;</system:String>
-    <system:String x:Key="IcoMoonCloseGroup">&#xe907;</system:String>
-    <system:String x:Key="IcoMoonOpenGroup">&#xe906;</system:String>
-    <system:String x:Key="IcoMoonPushToTalk">&#xe904;</system:String>
-    <system:String x:Key="IcoMoonHandRasied">&#xe901;</system:String>
-    <system:String x:Key="IcoMoonCourseware">&#xe902;</system:String>
-    <system:String x:Key="IcoMoonUser">&#xe903;</system:String>
+    <system:String x:Key="IcoMoonOnetoOne">&#xe916;</system:String>
+    <system:String x:Key="IcoMoonCloseGroup">&#xe90f;</system:String>
+    <system:String x:Key="IcoMoonOpenGroup">&#xe910;</system:String>
+    <system:String x:Key="IcoMoonPushToTalk">&#xe912;</system:String>
+    <system:String x:Key="IcoMoonHandRasied">&#xe915;</system:String>
+    <system:String x:Key="IcoMoonCourseware">&#xe920;</system:String>
+    <system:String x:Key="IcoMoonUser">&#xe913;</system:String>
     <system:String x:Key="IcoMoonPlay">&#xea15;</system:String>
     <system:String x:Key="IcoMoonPause">&#xea16;</system:String>
     <system:String x:Key="IcoMoonStop">&#xea17;</system:String>
-    <system:String x:Key="IcoMoonVolumeLow">&#xea28;</system:String>
-    <system:String x:Key="IcoMoonVolumeMute">&#xea2a;</system:String>
-    <system:String x:Key="IcoMoonMenu">&#xe90b;</system:String>
-    <system:String x:Key="IcoMoonHeadSet">&#xe90d;</system:String>
-    <system:String x:Key="IcoMoonPoll">&#xe905;</system:String>
+    <system:String x:Key="IcoMoonVolumeVeryHigh">&#xea26;</system:String>
+    <system:String x:Key="IcoMoonVolumeHigh">&#xea27;</system:String>
+    <system:String x:Key="IcoMoonVolumeLow">&#xea29;</system:String>
+    <system:String x:Key="IcoMoonVolumeVeryLow">&#xea2b;</system:String>
+    <system:String x:Key="IcoMoonVolumeMute">&#xea2c;</system:String>
+    <system:String x:Key="IcoMoonMenu">&#xe9bd;</system:String>
+    <system:String x:Key="IcoMoonHeadSet">&#xe918;</system:String>
+    <system:String x:Key="IcoMoonPoll">&#xe911;</system:String>
+    <system:String x:Key="IcoMoonClose">&#xe906;</system:String>
+    <system:String x:Key="IcoMoonSetting">&#xe905;</system:String>
 </ResourceDictionary>

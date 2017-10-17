@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--#region ToolBar Name-->
+    <system:String x:Key="StringClose">Close</system:String>
+    <system:String x:Key="StringBack">Back</system:String>
+    <system:String x:Key="StringForward">Forward</system:String>
+    <system:String x:Key="StringRefresh">Refresh</system:String>
+    <system:String x:Key="StringHome">Home</system:String>
+    <system:String x:Key="StringWebAddress">Web Address</system:String>
+    <system:String x:Key="StringSideDock">Side Dock</system:String>
+    <system:String x:Key="StringNormalView">Normal View</system:String>
+    <system:String x:Key="StringReset">Reset</system:String>
+    <system:String x:Key="StringSettings">System Settings</system:String>
+    <system:String x:Key="StringCourseware">Courseware</system:String>
+    <system:String x:Key="StringOpenGroup">Open Group</system:String>
+    <system:String x:Key="StringClosedGroup">Closed Group</system:String>
+    <system:String x:Key="StringOneToOne">One To One</system:String>
+    <system:String x:Key="StringPushToTalk">Push Talk</system:String>
+    <system:String x:Key="StringHandRaise">Hand Raise</system:String>
+    <system:String x:Key="StringPoll">Poll</system:String>
+    <system:String x:Key="StringAux">Aux In</system:String>
+    <system:String x:Key="StringHeadset">Headset</system:String>
+    <system:String x:Key="StringPA">PA</system:String>
+    <system:String x:Key="StringVolume">Volume</system:String>
+    <system:String x:Key="StringPlay">Play/Pause</system:String>
+    <system:String x:Key="StringRecord">Record</system:String>
+    <system:String x:Key="StringFileBrowse">File Browse</system:String>
+    <system:String x:Key="StringStudentList">Student List</system:String>  
+
+    <!--#endregion-->
+</ResourceDictionary>

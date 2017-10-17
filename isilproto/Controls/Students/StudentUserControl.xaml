@@ -1,20 +1,92 @@
-﻿<UserControl x:Class="isil.UserViews.Students.StudentUserControl"
+﻿<UserControl x:Class="Cacm.Isils.Controls.StudentUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:viewModel="clr-namespace:isil"
              mc:Ignorable="d" 
-               
+                 xmlns:uiExtensions="clr-namespace:Cacm.Isils"
+     
+                   xmlns:VM="clr-namespace:Cacm.Isils.ViewModel"
+             xmlns:local="clr-namespace:Cacm.Isils.Controls"
              d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <Style x:Key="StudentContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <!--main content-->
+                        <Border
+                            x:Name="Background"
+                       
+                              Background="{DynamicResource BackgroundVeryDarkBrush}"
+                                >
+                        <Grid x:Name="Container" 
+                              Background="Transparent" 
+                              >
+                        <TextBlock Text="{Binding Path = StudentSeatno}" 
+                               Foreground="{StaticResource BackgroundVeryLightBrush}" 
+                               FontFamily="{StaticResource Melbourne}" 
+                               FontSize="{StaticResource FontSizeLarge}" 
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"  
+                               Margin="0 0 0 3 "  
+                               VerticalAlignment="Bottom"
+                               />   
 
-    <Grid Background="AntiqueWhite" Margin="10">
-        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <Label Content="{Binding Path = StudentSeatno}" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Path = StudentHandRasied}" HorizontalAlignment="Left" Margin="237,56,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Path = StudentPollAns}" HorizontalAlignment="Left" Margin="237,100,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Path = StudentMicActive}" HorizontalAlignment="Left" Margin="237,150,0,0" VerticalAlignment="Top"/>
-       
+                                <TextBlock Text="{Binding  StudentChannel,Converter={uiExtensions:AudioGroupIconConveter}}" 
+                           Foreground="{StaticResource BackgroundVeryLightBrush}" 
+                           FontFamily="{StaticResource IcoMoon}" 
+                           FontSize="{StaticResource FontSizeXLarge}" 
+                           HorizontalAlignment="Center"  
+                           Margin="0 7 0 0 "  
+                           VerticalAlignment="Top"
+                           Visibility="{Binding ShowBubble,Converter={uiExtensions:StringToReverseVisibilityConveter}}"
+                           />
+                
+                         <local:StudentBubbleControl  
+                             x:Name="StudentBubble" 
+                             Margin="0 3 0 0 "
+                             Visibility="{Binding ShowBubble,
+                             Converter={uiExtensions:StringToVisibilityConveter}}" 
+                             />
+                        </Grid>
+                        </Border>
+                        
+                        <!--hover effer-->
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected }"  Value="True">
+                                <Setter Property="Background" TargetName="Background" Value="{StaticResource CacmCyanBrush}"/>
+                            </DataTrigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource BackgroundMediumDark}" Duration="0:0:0.3" Storyboard.TargetName="Container" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Transparent" Duration="0:0:0.3" Storyboard.TargetName="Container" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                          
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
-    </Grid>
+
+    <ContentControl Width="40" 
+                    Height="59"
+                    Margin="1,0,0,1" 
+                    d:DataContext="{x:Static VM:StudentListItemDesignModel.Instance}" 
+                    Style="{StaticResource StudentContentStyle}"
+                    />
+
+
 </UserControl>

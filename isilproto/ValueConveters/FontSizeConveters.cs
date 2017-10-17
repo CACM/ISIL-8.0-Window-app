@@ -7,7 +7,7 @@ namespace Cacm.Isils
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Console.WriteLine(value);
+            
             if(System.Windows.SystemParameters.WorkArea.Width>1300)
             return  14;
             else

@@ -7,7 +7,7 @@ namespace Cacm.Isils.Model.Base
     /// Base Model to fire the property change.
     /// </summary>
     /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
-    class BaseModel : INotifyPropertyChanged
+    public class BaseModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
